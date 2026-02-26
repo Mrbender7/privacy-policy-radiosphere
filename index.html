@@ -5,20 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Radio Sphere</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; color: #333; background-color: #f9f9f9; }
-        .container { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .lang-switch { display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 20px; }
-        .lang-btn { padding: 8px 15px; cursor: pointer; border: 1px solid #ddd; background: #eee; border-radius: 4px; font-weight: bold; }
-        .lang-btn.active { background: #007bff; color: white; border-color: #0056b3; }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #34495e; margin-top: 30px; }
-        ul { padding-left: 20px; }
+        :root {
+            --electric-blue: #00d2ff;
+            --electric-purple: #9d50bb;
+            --dark-bg: #0a0a0a;
+            --card-bg: #161616;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 20px; 
+            color: var(--text-main); 
+            background-color: var(--dark-bg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid #222;
+            box-sizing: border-box;
+        }
+
+        /* Header & Logo */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .app-logo {
+            width: 80px; /* Taille contrôlée pour le logo "full" */
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+            object-fit: cover;
+        }
+
+        h1 { 
+            font-size: 2.2rem;
+            margin: 0 0 20px 0;
+            background: linear-gradient(135deg, var(--electric-blue), var(--electric-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        /* Sélecteur de langue */
+        .lang-switch { 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-bottom: 30px; 
+        }
+
+        .lang-btn { 
+            padding: 8px 20px; 
+            cursor: pointer; 
+            border: 1px solid #333; 
+            background: transparent; 
+            color: var(--text-dim);
+            border-radius: 50px; 
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--electric-blue);
+            color: white;
+        }
+
+        .lang-btn.active { 
+            background: linear-gradient(135deg, var(--electric-blue), var(--electric-purple)); 
+            color: white; 
+            border: none;
+            box-shadow: 0 4px 12px rgba(157, 80, 187, 0.3);
+        }
+
+        h2 { 
+            color: var(--electric-blue); 
+            margin-top: 30px; 
+            font-size: 1.4rem;
+            border-bottom: 1px solid #222;
+            padding-bottom: 8px;
+        }
+
+        ul { padding-left: 20px; color: var(--text-dim); }
+        li { margin-bottom: 8px; }
+        strong { color: white; }
+
         .lang-section { display: none; }
         .lang-section.active { display: block; }
-        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #7f8c8d; }
+
+        footer { 
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #222; 
+            font-size: 0.85rem; 
+            color: var(--text-dim); 
+            text-align: center;
+        }
+
+        em { color: var(--electric-purple); font-style: normal; font-weight: bold; }
     </style>
 </head>
 <body>
+
+    <div class="header">
+        <img src="favicon.png" alt="Radio Sphere Logo" class="app-logo">
+        <h1>Radio Sphere</h1>
+    </div>
 
     <div class="lang-switch">
         <button class="lang-btn active" onclick="showLang('fr')">Français</button>
@@ -27,50 +133,50 @@
 
     <div class="container">
         <div id="fr" class="lang-section active">
-            <h1>Politique de Confidentialité</h1>
+            <h2>Politique de Confidentialité</h2>
             <p>Dernière mise à jour : 26 février 2026</p>
-            <p>L'application <strong>Radio Sphere</strong>, développée par Franck H. Malherbe, respecte votre vie privée. Cette politique détaille la gestion de vos données.</p>
+            <p>L'application <strong>Radio Sphere</strong>, développée par Franck H. Malherbe, respecte votre vie privée. Cette politique détaille la gestion de vos données conformément à nos engagements de sécurité [cite: 2026-02-25].</p>
 
             <h2>1. Collecte des données</h2>
             <p>Radio Sphere ne collecte aucune donnée personnelle identifiable. Aucune inscription n'est requise.</p>
             <ul>
-                <li><strong>Favoris :</strong> Stockés localement sur votre appareil.</li>
-                <li><strong>Flux :</strong> Les serveurs tiers (Radio Browser) reçoivent votre IP pour la diffusion technique.</li>
+                <li><strong>Favoris :</strong> Stockés localement sur votre appareil pour garantir votre confidentialité [cite: 2026-02-25].</li>
+                <li><strong>Flux :</strong> Les serveurs tiers (Radio Browser) reçoivent votre adresse IP uniquement pour la diffusion technique du flux audio.</li>
             </ul>
 
             <h2>2. Permissions</h2>
-            <p>L'usage du <em>Foreground Service</em> est strictement limité à la lecture audio continue en arrière-plan.</p>
+            <p>L'usage du <em>Foreground Service</em> est strictement limité à la lecture audio continue en arrière-plan pour votre confort d'écoute.</p>
 
             <h2>3. Sécurité</h2>
-            <p>Nous privilégions le stockage local et le chiffrement pour toute donnée sensible.</p>
+            <p>Nous privilégions systématiquement les solutions locales. Le chiffrement est appliqué pour toute donnée sensible gérée par l'application [cite: 2026-02-25].</p>
             
             <footer>
-                Contact : Franck H. Malherbe<br>
-                Liège, Belgique
+                Développeur : Franck H. Malherbe<br>
+                Liège, Belgique [cite: 2026-02-25]
             </footer>
         </div>
 
         <div id="en" class="lang-section">
             <h1>Privacy Policy</h1>
             <p>Last updated: February 26, 2026</p>
-            <p>The <strong>Radio Sphere</strong> app, developed by Franck H. Malherbe, values your privacy. This policy outlines our data practices.</p>
+            <p>The <strong>Radio Sphere</strong> app, developed by Franck H. Malherbe, values your privacy. This policy outlines our data practices according to our security standards [cite: 2026-02-25].</p>
 
             <h2>1. Data Collection</h2>
             <p>Radio Sphere does not collect any personally identifiable information. No account is needed.</p>
             <ul>
-                <li><strong>Favorites:</strong> Saved locally on your device.</li>
-                <li><strong>Streaming:</strong> Third-party servers (Radio Browser) receive your IP address for technical delivery.</li>
+                <li><strong>Favorites:</strong> Saved locally on your device to ensure maximum privacy [cite: 2026-02-25].</li>
+                <li><strong>Streaming:</strong> Third-party servers (Radio Browser) receive your IP address for technical delivery of the audio stream only.</li>
             </ul>
 
             <h2>2. Permissions</h2>
             <p>The <em>Foreground Service</em> permission is used exclusively for uninterrupted background audio playback.</p>
 
             <h2>3. Security</h2>
-            <p>We prioritize local solutions and use encryption for sensitive data management.</p>
+            <p>We strictly prioritize local storage solutions. Encryption is used for any sensitive data managed within the app [cite: 2026-02-25].</p>
 
             <footer>
-                Contact: Franck H. Malherbe<br>
-                Liège, Belgium
+                Developer: Franck H. Malherbe<br>
+                Liège, Belgium [cite: 2026-02-25]
             </footer>
         </div>
     </div>
