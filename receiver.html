@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+    <style>
+        body {
+            background-color: #0a0a0a; /* Ton noir profond */
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #logo {
+            width: 300px;
+            height: 300px;
+            border-radius: 60px;
+            box-shadow: 0 0 50px rgba(0, 210, 255, 0.4);
+            margin-bottom: 40px;
+        }
+        h1 {
+            background: linear-gradient(135deg, #00d2ff, #9d50bb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 4em;
+            margin: 0;
+        }
+        #status { color: #a0a0a0; font-size: 1.5em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <img id="logo" src="favicon.png">
+    <h1 id="title">Radio Sphere</h1>
+    <div id="status">Prêt à diffuser</div>
 
+    <cast-media-player></cast-media-player>
+
+    <script>
+        const context = cast.framework.CastReceiverContext.getInstance();
+        const playerManager = context.getPlayerManager();
+
+        // Pour mettre à jour le titre quand une radio est lancée
+        playerManager.setMessageInterceptor(
+            cast.framework.messages.MessageType.LOAD,
+            loadRequestData => {
+                if (loadRequestData.media && loadRequestData.media.metadata) {
+                    document.getElementById('title').textContent = loadRequestData.media.metadata.title;
+                    document.getElementById('status').textContent = "Lecture en cours...";
+                }
+                return loadRequestData;
+            }
+        );
+
+        context.start();
+    </script>
+</body>
+</html>
